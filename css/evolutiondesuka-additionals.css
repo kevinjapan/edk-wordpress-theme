@@ -1,0 +1,104 @@
+@charset "UTF-8";
+/*
+ * EvolutionDesuKa Additionals CSS 
+ * 
+ * styling for customizer injection via the 'Additional CSS Class(es)' for edit blocks
+ *
+ */
+
+
+/*
+ * dimensions
+ */
+.evolutiondesuka_full_width {
+   width:100vw;
+}
+.evolutiondesuka_fill_width {
+   width:100vw;
+}
+.evolutiondesuka_full_height{
+   height:100vh;
+}
+.evolutiondesuka_fill_height{
+   height:100%;
+}
+
+
+/* 
+ * element content alignment
+ */
+.evolutiondesuka_center_content {
+   margin:auto;
+   text-align: center;
+}
+.evolutiondesuka_center_content p {
+   padding:1rem;
+} 
+.evolutiondesuka_start_content{
+   margin-left:auto;
+}
+.evolutiondesuka_end_content{
+   margin-right:auto;
+}
+.evolutiondesuka_no_bottom_spacing {
+   margin-bottom:0;
+   padding-bottom:0;
+}
+.evolutiondesuka_no_top_spacing {
+   margin-top:0;
+   padding-top:0;
+}
+
+
+
+/* 
+ * wp 'columns' block styling
+ */
+.evolutiondesuka_no_column_margins .wp-block-column{
+   margin:0;
+}
+ .evolutiondesuka_no_padding {
+    padding:0;
+ }
+ .evolutiondesuka_no_margins {
+    margin:0;
+ }
+.evolutiondesuka_no_x_margins,
+.wp-block-columns.evolutiondesuka-columns.evolutiondesuka_no_x_margins.has-background  {
+    margin-left:0;margin-right:0;
+}
+.evolutiondesuka_no_y_margins,
+.wp-block-columns.evolutiondesuka-columns.evolutiondesuka_no_y_margins.has-background {
+   margin-top:0;margin-bottom:0;
+}
+ /* remove gaps between 'wp-block-column' blocks inside 'wp-block-columns' */
+.evolutiondesuka_no_gaps .wp-block-column{
+   margin:0;
+}
+
+/* 
+ * position any block top-left of it's parent
+ */
+.evolutiondesuka-position-top-left {
+   position:absolute;top:0px;left:0px;margin:1rem;
+}
+
+/*
+ * give an opaque background : eg on column
+ */
+.evolutiondesuka_opaque_bg {
+   position:relative;
+}
+.evolutiondesuka_opaque_bg::before {
+   content:'';
+   position:absolute;top:0;left:0;
+   height:100%;width:100%;
+   background:black;
+   filter:opacity(.2);z-index:-999;
+}
+.evolutiondesuka_opaque_bg:hover.evolutiondesuka_opaque_bg::before {
+   background:black;
+   filter:opacity(.5);
+   border:solid 1px white;
+}
+

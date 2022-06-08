@@ -1,0 +1,378 @@
+@charset "UTF-8";
+/*  
+ * EvolutionDesuKa navigation css
+ *
+ * EvolutionDesuKa main navigation styling
+ *
+ * evolutiondesuka-navigation [must overlay evolutiondesuka-site-header]
+ *
+ */
+
+.evolutiondesuka-navigation {
+   position:relative;
+   top:0;
+   left:0;
+   z-index:1000;
+   display:flex;
+   flex-direction:row;
+   justify-content:space-between;
+   width:100%;
+   height:var(--evolutiondesuka-navigation-overlay);
+   font-size:1.2rem;
+}
+.evolutiondesuka-navigation_bg {
+   position:absolute;
+   z-index:-1;
+   top:0px;
+   left:0px;
+   width:100%;
+   height:100%;
+}
+.evolutiondesuka_dropdown_bg {
+   position:absolute;
+   z-index:-1;
+   top:0px;
+   left:0px;
+   width:100%;
+   height:100%;
+}
+.evolutiondesuka-nav_logo {
+   z-index:99999;
+   align-self:flex-start;
+   margin:.5rem 0 0 .5rem;
+}
+.evolutiondesuka-nav_logo img{
+   padding-top:.5rem;
+}
+.evolutiondesuka-nav_logo .custom-logo {
+   margin-top:-.5rem;
+}
+.evolutiondesuka-nav_logo_text {
+   color:white;
+   display:inline;
+   font-size:1.5rem;
+}
+.evolutiondesuka-navigation .menu li{
+   list-style-type:none;
+   padding:0;
+}
+.evolutiondesuka-nav_logo_text {
+  white-space:nowrap;
+}
+/* evolutiondesuka-navigation menu evolutiondesuka-dropdown */
+ .evolutiondesuka_dropdown__menu .menu .menu-item a {
+   /*white-space:nowrap;*/
+   text-decoration:none;
+   text-align:left;
+ }
+/* evolutiondesuka-dropdown menu / main evolutiondesuka-navigation hamburger on sm screens & all touch screens */
+@media screen and (hover:none)  {
+   .evolutiondesuka_dropdown__menu ul.menu {
+      padding:1rem;
+   }
+   .evolutiondesuka-navigation .evolutiondesuka_dropdown .evolutiondesuka_dropdown__menu .menu {
+      width:100vw;
+      margin-left:1rem;
+      padding-right:3rem;
+      padding:1rem;
+   }
+}
+@media screen and (hover:none)  {
+   .evolutiondesuka_dropdown_bg {
+      background:white;
+   }
+}
+@media screen and (max-width:992px) and (hover:hover)  {
+   .evolutiondesuka_dropdown_bg {
+      background:white;
+   }
+}
+.evolutiondesuka_dropdown {
+   padding:.5rem;
+   margin:0 1rem 0 0;
+}
+.evolutiondesuka_dropdown {
+   /*position:relative; - disabled since we want .evolutiondesuka_dropdown__menu absolute positioned to the body */
+   align-self:flex-end;
+}
+.evolutiondesuka_dropdown__hamburger {
+   position:relative;
+   background:none;
+   border:none;
+   text-decoration: none;
+   color:#777;
+   width:1.5rem;
+   height:1rem;
+   margin:0 -1rem .5rem 0;
+   padding:0;
+   cursor:pointer;
+   border-top:0.2em solid #fff;
+   border-bottom:0.2em solid #fff;
+   opacity:1;
+   transform:translateY(3px);
+   transition:opacity 300ms ease-in-out, transform 300ms ease-in-out;
+}
+.evolutiondesuka_dropdown__hamburger::before {
+   position:absolute;
+   left:0;
+   top:.3rem;
+   content:'';
+   width:100%;
+   border-top:0.2em solid #fff;
+}
+.evolutiondesuka_dropdown__menu {
+   position:absolute;
+   visibility:hidden; /* hide dropdown menu flicker on brkpt transition */
+   /* orig position is tied to evolutiondesuka-navigation @ right side of screen */
+   left:0;
+   top:var(--evolutiondesuka-navigation-overlay);
+   width:100%;
+   height:100vh;
+   overflow-y:scroll;
+   margin:0;
+   padding:.5rem 0;
+   pointer-events:none;
+   opacity:0; 
+   /*transform:translateY(-50px);
+   transition:opacity 300ms ease-in-out, transform 300ms ease-in-out;*/
+
+}
+
+.evolutiondesuka_dropdown__menu .menu {
+   padding:0;
+   flex-direction:column;
+   margin:0;
+}
+.evolutiondesuka_dropdown__menu .sub-menu {
+   padding:1rem;
+   padding-block:0;
+}
+.evolutiondesuka_dropdown .menu .menu-item {
+   margin-block:.5rem;
+}
+.evolutiondesuka_dropdown .menu .menu-item a {
+   max-width:100%;
+   word-wrap: normal;
+   margin-block:1rem;
+   -ms-word-wrap: break-word;
+   word-wrap: break-word;
+}
+.evolutiondesuka_dropdown.evolutiondesuka_active_menu > .evolutiondesuka_dropdown__hamburger,
+.evolutiondesuka_dropdown__hamburger:hover {
+   color:black;
+}
+.evolutiondesuka_dropdown.evolutiondesuka_active_menu > .evolutiondesuka_dropdown__hamburger + .evolutiondesuka_dropdown__menu,
+.evolutiondesuka_dropdown.evolutiondesuka_active_menu > .evolutiondesuka_dropdown__menu {
+   visibility:visible;
+   opacity:1;
+   /*transform:translateY(-19px);*/
+   pointer-events:auto;
+}
+.evolutiondesuka_dropdown__menu.evolutiondesuka_active_menu {
+   opacity:1;
+}
+.evolutiondesuka_dropdown__close {
+   color:var(--nr-black-text);
+   background:white;
+   width:105%;
+   margin-top:-1px;
+   padding:3rem;
+   font-size:.9rem;
+   text-align:center;
+   cursor:pointer;
+}
+@media screen and (hover:hover) {
+   .evolutiondesuka_dropdown__menu {
+      padding:1rem 2rem;
+   }
+}
+
+/* 
+ * evolutiondesuka-dropdown menu / show main evolutiondesuka-navigation on lg non-touch screen 
+ */
+@media screen and (min-width:992px) and (hover:hover) {
+   .evolutiondesuka_dropdown__hamburger {
+      display:none;
+      margin-left:120%; /* place nr desired pos - since flex places it mid-screen & any transform is visible */
+      opacity:1; 
+      transform:translateY(-20px);
+      transition:opacity 300ms ease-in-out, transform 300ms ease-in-out;
+   }
+   .evolutiondesuka_dropdown__menu {
+      position:relative;
+      visibility:visible;
+      top:.5rem;
+      width:auto;
+      height:var(--evolutiondesuka-navigation-overlay);
+      margin-top:var(--evolutiondesuka-navigation-underlay);
+      padding-top:40px;
+      box-shadow:none;
+      overflow:unset;
+      pointer-events:auto;
+      opacity:1;
+      /*transform:translateY(0);
+      transition:opacity 300ms ease-in-out, transform 300ms ease-in-out;*/
+   }
+   .evolutiondesuka_dropdown__close {
+      display:none;
+   }
+   /*
+    * 'menu' is normally assigned to ul ,
+    *  but if WP creates menu itself (ie no user-created menu) the 'menu' class is assigned to a wrapper 'div' and not 'ul'
+    */
+   .evolutiondesuka_dropdown__menu .menu,
+   .evolutiondesuka_dropdown__menu .menu ul {
+      display:flex;
+      flex-direction:row;
+      margin-top:-22px;
+      margin-right:20px;
+   }
+   .evolutiondesuka_dropdown__menu > .menu > .menu-item {
+      margin-inline:0;
+      padding:0;
+      align-self:flex-end;
+   }
+   .evolutiondesuka_dropdown__menu .menu > .menu-item  {
+     padding-inline:1.3rem; /* wiggle room to save unintentional dropdown closing on cursor move */
+   }
+   .evolutiondesuka_dropdown__menu .menu .menu-item a {
+     white-space:nowrap;
+   }
+   /* rqrd for no user-created menu ui */
+   .evolutiondesuka_dropdown__menu .menu ul {
+      margin:0;
+   }
+   .evolutiondesuka_dropdown__menu .menu a{
+      text-decoration: none;
+      color:white;
+      border:solid 1px transparent;
+   }
+   .evolutiondesuka_dropdown .menu .menu-item,
+   .evolutiondesuka_dropdown .menu .page_item {
+      color:#777;
+      cursor:pointer;
+      transform:translateX(0px); 
+   }
+   /*
+    * behaviour
+    * user-created 'menu' has 'menu-item's & 'sub-menu's
+    * but if WP creates menu itself, the 'menu' has 'page_item's & 'children' (go figure!)
+    */
+   .evolutiondesuka_dropdown .menu > .menu-item.menu-item-has-children:hover > a,
+   .evolutiondesuka_dropdown .menu > ul > .page_item.page_item_has_children:hover > a  {
+      border:solid 1px black;
+   }
+   .evolutiondesuka_dropdown .menu .menu-item li a,
+   .evolutiondesuka_dropdown .menu > ul .page_item li a {
+      padding-left:2rem;
+   }
+   .evolutiondesuka_dropdown .menu .menu-item li a:hover,
+   .evolutiondesuka_dropdown .menu > ul .page_item li a:hover {
+      background-color:black;
+   }
+   .evolutiondesuka_dropdown .menu > .menu-item:hover > .sub-menu,
+   .evolutiondesuka_dropdown .menu > ul > .page_item:hover > .children {
+      visibility:visible;
+      padding-block:1rem;  /* encourage user to move cursor @ steeper angle & avoid closing dropdown */
+      opacity:1;
+      transform:translateY(-25px); 
+      overflow-y:unset;
+      margin-top:-3px;     /* no space between label and it's sub-menu to prevent inadvertent closing */
+   }
+   .evolutiondesuka_dropdown .menu > .menu-item > .sub-menu > .menu-item {
+      padding:0;
+      margin-left:0;
+      padding-left:2rem;
+   }
+   .menu > ul > .page_item {
+      padding-left:4rem;
+   }
+   .evolutiondesuka-navigation .evolutiondesuka_dropdown .evolutiondesuka_dropdown__menu .menu .menu-item {
+      padding-inline:0;
+   }
+   .evolutiondesuka-navigation .evolutiondesuka_dropdown .evolutiondesuka_dropdown__menu .menu .menu-item a {
+      padding-inline:1rem;
+      margin-inline:0;
+   }
+   .evolutiondesuka_dropdown .menu > .menu-item .sub-menu .menu-item a,
+   .evolutiondesuka_dropdown .menu > ul > .page_item a {
+      width:100%;
+   }
+   .evolutiondesuka_dropdown .menu .menu-item {
+      margin-block:.1rem;
+   }
+   .evolutiondesuka_dropdown .menu .menu-item .sub-menu {
+      margin-left:4%;
+   }
+   .evolutiondesuka_dropdown .menu > .menu-item > .sub-menu,
+   .evolutiondesuka_dropdown .menu > ul > .page_item  > .children  {
+      position:absolute;
+      z-index:1000;
+      visibility:hidden;  /* hide flicker on brkpt transition */
+
+      /* dropdown top : ensure abuts w/ top nav so users don't close sub-menu unintentionally on cursor movement */
+      top:55px;   
+ 
+      /* EvolutionDesuKa aligns menu to right-side of nav item, allowing: 
+         (a) all our right-aligned top nav items to support sub-menus
+         (b) proceeding w/out wrapping text (difficult given WP places sub-menus inside parent li elements)
+             so, long menu titles !supported (good practice anyhow) - but we mitigate somewhat w/ our alignment 
+             while still allowing content to determine dropdown width */
+      right:15px;
+      
+      margin-left:0;
+      padding:.5rem;
+      border-radius:.25rem;
+      box-shadow:0 2px 5px 0 rgba(0,0,0,.4);
+      opacity:0; 
+      transform:translateY(-40px); 
+      transition:opacity 300ms ease-in-out, transform 300ms ease-in-out;
+      display:flex;
+      flex-direction:column; 
+   }
+   .evolutiondesuka_dropdown.evolutiondesuka_active_menu {
+      opacity:1;
+   }
+   .evolutiondesuka_dropdown.evolutiondesuka_active_menu > .menu-item,
+   .menu-item:hover {
+      color:black;
+   }
+   .evolutiondesuka_dropdown.evolutiondesuka_active_menu .menu > .menu-item + .sub-menu,
+   .evolutiondesuka_dropdown.evolutiondesuka_active_menu .menu > .page_item + .children {
+      pointer-events:auto;
+      opacity:1;
+      /*transform:translateY(-5px);*/
+   }
+   .evolutiondesuka_dropdown .sub-menu.evolutiondesuka_active_menu {
+      opacity:1;
+   }
+   .evolutiondesuka_dropdown .children.evolutiondesuka_active_menu {
+      opacity: 1;
+   }
+   .sub-menu .menu-item.menu-item-has-children .sub-menu,
+   .children .page_item.page_item_has_children .children {
+      display:flex;
+      flex-direction:column;
+   }
+   .evolutiondesuka_dropdown .menu > .menu-item.evolutiondesuka_active_sub_menu > .sub-menu,
+   .evolutiondesuka_dropdown .menu > ul > .page_item.evolutiondesuka_active_sub_menu > .children {
+      visibility:visible;
+      padding-block:1rem; /* encourage user to move cursor @ steeper angle & avoid closing dropdown */
+      opacity:1;
+      transform:translateY(-25px); 
+      overflow-y:unset;
+   }
+}
+
+/* 
+ * hide window scroll on browser sm when dropdown displayed (dropdown scroll takes over) 
+ */
+.evolutiondesuka-dropdown-active {
+   overflow-y:hidden;
+}
+
+
+.evolutiondesuka_toggle_nav_on_selected {
+   display:none;
+}
+

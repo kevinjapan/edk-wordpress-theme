@@ -1,0 +1,524 @@
+@charset "UTF-8";
+/*
+ * EvolutionDesuKa Block Patttern Mods
+ * custom block patterns and css overrides for wp blocks
+ * modify core blocks for EvolutionDesuKa block patterns
+ *
+ * these rules are enabled in block editor so must not interfere with regular editing
+ * for behaviours which may interfere with editing - use block-pattern-mods-fe.css
+ */
+
+
+/*
+ * modify core blocks
+ */
+
+/* wp-block-columns */
+.wp-block-columns {
+    /* wp: display:flex;*/
+   padding:3rem 0 1rem 0;
+}
+@media (max-width: 768px) { 
+   .wp-block-columns {
+      display: block;
+      align-items:stretch;
+   }
+}
+
+/* wp-block-column */
+.wp-block-column {
+   /* wp: flex: 1; */
+   margin:0;
+   padding:0;
+   height:100%;
+}
+.wp-block-column p, .wp-block-column h1 {
+   padding:1rem;
+}
+.wp-block-column h2 {
+   padding:1rem;
+}
+.wp-block-column h3 {
+   padding:1rem;
+}
+
+/* wp-block-image */
+.wp-block-image {
+   width:100%;
+}
+
+
+/*
+ * custom block patterns
+ * theme styling & hooks for assigning theme mods
+ */
+
+/* 
+ * evolutiondesuka-cover 
+ */
+.evolutiondesuka-cover,
+.evolutiondesuka-cover.has-background {
+   width:100%;
+   margin:auto;
+}
+@media screen and (max-width: 768px) {
+   .wp-block-cover.has-background-dim.evolutiondesuka-cover,
+   .evolutiondesuka-cover.has-background {
+      width:96vw;
+   }  
+}
+
+/* workaround to prevent flickering in fullwidth editor pattern insert panel */
+.block-editor-block-preview__container.editor-styles-wrapper .evolutiondesuka-cover {
+   display:relative;
+   width:100%;
+   padding:0;
+}
+.wp-block-cover.evolutiondesuka-two-feature-cover .wp-block-cover__inner-container h2 {
+   line-height:3.5rem;
+}
+/* specific EvolutionDesuKa cover layouts */
+@media screen and (min-width: 768px) {
+   .evolutiondesuka-two-feature-cover .wp-block-cover__inner-container {
+      padding:2rem 0;
+      margin:auto;
+   }
+   .evolutiondesuka-two-feature-cover .wp-block-cover__inner-container .wp-block-columns {
+      gap:5rem;
+      margin-top:2rem;
+   }
+}
+
+.wp-block-cover.evolutiondesuka-cover.evolutiondesuka-two-feature-cover .wp-block-cover__inner-container h1,
+.wp-block-cover.evolutiondesuka-cover.evolutiondesuka-two-feature-cover .wp-block-cover__inner-container h2,
+.wp-block-cover.evolutiondesuka-cover.evolutiondesuka-two-feature-cover .wp-block-cover__inner-container h3,
+.wp-block-cover.evolutiondesuka-cover.evolutiondesuka-two-feature-cover .wp-block-cover__inner-container h4,
+.wp-block-cover.evolutiondesuka-cover.evolutiondesuka-two-feature-cover .wp-block-cover__inner-container h5,
+.wp-block-cover.evolutiondesuka-cover.evolutiondesuka-two-feature-cover .wp-block-cover__inner-container h6 {
+   margin:0;
+}
+.wp-block-cover.evolutiondesuka-cover.evolutiondesuka-two-feature-cover .wp-block-cover__inner-container .wp-block-columns {
+   width:100%;
+   margin:0;
+   padding:1rem;
+}
+
+.evolutiondesuka-three-feature-cover,
+.evolutiondesuka-three-feature-cover .wp-block-cover__inner-container {
+   padding:1rem 1rem;
+   margin:auto;
+}
+.wp-block-cover.evolutiondesuka-cover.evolutiondesuka-three-feature-cover .wp-block-cover__inner-container h1,
+.wp-block-cover.evolutiondesuka-cover.evolutiondesuka-three-feature-cover .wp-block-cover__inner-container h2,
+.wp-block-cover.evolutiondesuka-cover.evolutiondesuka-three-feature-cover .wp-block-cover__inner-container h3,
+.wp-block-cover.evolutiondesuka-cover.evolutiondesuka-three-feature-cover .wp-block-cover__inner-container h4,
+.wp-block-cover.evolutiondesuka-cover.evolutiondesuka-three-feature-cover .wp-block-cover__inner-container h5,
+.wp-block-cover.evolutiondesuka-cover.evolutiondesuka-three-feature-cover .wp-block-cover__inner-container h6 {
+   margin:0;
+}
+.wp-block-cover.evolutiondesuka-cover.evolutiondesuka-three-feature-cover .wp-block-cover__inner-container .wp-block-columns {
+   width:100%;
+   margin:0;
+   padding:1rem;
+}
+
+/*
+ * evolutiondesuka-columns
+ */
+article .entry-content .wp-block-media-text.evolutiondesuka-columns,
+article .entry-content .wp-block-media-text.evolutiondesuka-columns.has-background {
+   position:relative;
+   left:0;
+   width:100%;
+   margin:auto;
+   align-self:center;
+}
+@media screen and (max-width:768px) {
+   article .entry-content .wp-block-media-text.evolutiondesuka-columns p {
+      padding-inline:1rem;
+   } 
+   article .entry-content .wp-block-media-text.evolutiondesuka-columns .wp-block-media-text__content {
+      padding-inline:0;
+   }
+   article .entry-content .wp-block-media-text.evolutiondesuka-columns,
+   article .entry-content .wp-block-columns.evolutiondesuka-columns,
+   article .entry-content .wp-block-columns.evolutiondesuka-cover-columns,
+   article .entry-content .wp-block-group.evolutiondesuka-cover-grid,
+   article .entry-content .wp-block-group.evolutiondesuka-text {
+      width:90vw; /* tweak to 90 to balance w/ left margin */
+   }
+}
+article .entry-content .wp-block-group.evolutiondesuka-cover-grid .wp-block-group__inner-container .wp-block-cover.has-background-dim {
+   margin:0;
+}
+.wp-block-media-text.evolutiondesuka-single-feature-columns {
+   width:100%;
+   padding:0;
+} 
+.wp-block-columns.evolutiondesuka-columns {
+   width:100%;
+   padding:0;
+}
+.wp-block-columns.evolutiondesuka-columns .wp-block-column {
+   margin:auto; /* nb : this will set margins across main axis of flex - so can upset vertical alignment */
+}
+
+
+/* evolutiondesuka-two-feature-columns */
+.wp-block-columns.evolutiondesuka-columns.evolutiondesuka-two-feature-columns,
+.wp-block-columns.evolutiondesuka-columns.evolutiondesuka-two-feature-columns.has-background{
+   margin:auto;
+}
+.evolutiondesuka-two-feature-columns .wp-block-column {
+   text-align:center;
+   border:solid 1px transparent;
+   overflow:hidden;
+}
+
+
+
+/* evolutiondesuka-three-feature-columns */
+.wp-block-columns.evolutiondesuka-columns.evolutiondesuka-three-feature-columns,
+.wp-block-columns.evolutiondesuka-columns.evolutiondesuka-three-feature-columns.has-background{
+   width:100%;
+   margin:auto;
+}
+.wp-block-columns.evolutiondesuka-columns.evolutiondesuka-three-feature-columns .wp-block-column {
+   margin:0 .5rem; /* prevent vertical centering - align @ top */
+}
+.evolutiondesuka-three-feature-columns .wp-block-column {
+   margin-bottom:3rem;
+}
+.evolutiondesuka-three-feature-columns .wp-block-column h2 {
+   margin-bottom:-1rem;
+}
+.evolutiondesuka-three-feature-columns .wp-block-column p {
+   margin-top:0;
+}
+.evolutiondesuka-three-feature-columns .wp-block-column {
+   padding:0;margin:0;
+}
+@media screen and (max-width:768px) {
+   .wp-block-columns.evolutiondesuka-columns.evolutiondesuka-three-feature-columns .wp-block-column {
+      margin-bottom:5rem;
+   }
+   .evolutiondesuka-three-feature-columns .wp-block-column h2 {
+      margin-top:0;
+   }
+}
+
+/* evolutiondesuka-six-feature-columns */
+article .entry-content .wp-block-columns.evolutiondesuka-columns.evolutiondesuka-six-feature-columns .wp-block-column figure.wp-block-image {
+   width:100%;
+}
+article .entry-content .wp-block-columns.evolutiondesuka-columns.evolutiondesuka-three-feature-columns .wp-block-column figure.wp-block-image {
+   width:100%;
+}
+
+/*
+ * evolutiondesuka-cover-columns
+ * behaviour which interferes with editing is defined in block-pattern-mods-fe.css
+ */
+ .evolutiondesuka-cover-columns,
+ .evolutiondesuka-cover-columns.has-background {
+   width:100%;
+   margin:auto;
+}
+.evolutiondesuka-cover-columns .wp-block-column {
+   margin:auto;
+}
+.evolutiondesuka-cover-columns .wp-block-column p,
+.evolutiondesuka-cover-columns .wp-block-column h1 {
+   width:100%;
+}
+@media screen and (max-width: 786px) { 
+   .wp-block-columns.evolutiondesuka-cover-columns,
+   .wp-block-columns.evolutiondesuka-cover-columns.has-background {
+     width:100%;
+     margin:auto;
+     padding:0;
+  }
+  
+  .wp-block-columns.evolutiondesuka-cover-columns .wp-block-column {
+     margin:0;
+     width:100%;
+  }
+  .wp-block-columns.evolutiondesuka-cover-columns.evolutiondesuka-three-feature-cover-columns .wp-block-column {
+     margin-bottom:.5rem;
+  }
+}
+/* align covers vertically */
+.wp-block-columns.evolutiondesuka-cover-columns .wp-block-column .wp-block-cover {
+   vertical-align: top;
+}
+
+
+
+/*
+ * evolutiondesuka-cover-grid
+ * behaviour which interferes with editing is defined in block-pattern-mods-fe.css
+ */
+.wp-block-group.evolutiondesuka-cover-grid {
+   margin:auto;
+   padding:0;
+}
+
+.wp-block-group.evolutiondesuka-cover-grid,
+.wp-block-group.evolutiondesuka-cover-grid.has-background{
+   width:100%;
+}
+.evolutiondesuka-cover-grid .wp-block-group__inner-container {
+   display:flex;
+   flex-direction:row;
+   flex-wrap:wrap;
+   align-content:center;
+   width:100%;
+   padding:0;
+}
+.evolutiondesuka-cover-grid .wp-block-cover, 
+.evolutiondesuka-cover-grid .wp-block-cover.has-background-dim {
+   max-width:100%;
+   margin-bottom:.2rem;
+}
+.evolutiondesuka-cover-grid p {
+   margin:auto;
+}
+@media screen and (min-width: 786px) {
+   .evolutiondesuka-cover-grid .wp-block-cover, 
+   .evolutiondesuka-cover-grid .wp-block-cover.has-background-dim {
+      max-width:50%;
+      margin-bottom:.2rem !important;
+      overflow:hidden;
+      margin-inline:0;
+   }
+}
+@media screen and (min-width: 1238px) {
+   .evolutiondesuka-cover-grid .wp-block-cover, 
+   .evolutiondesuka-cover-grid .wp-block-cover.has-background-dim {
+      margin-bottom:0 !important;
+   }
+}
+.wp-block-group.evolutiondesuka-cover-grid .wp-block-group__inner-container .wp-block-cover.has-background-dim  {
+   min-width:50%;
+}
+@media screen and (max-width: 786px) {
+   .wp-block-group.evolutiondesuka-cover-grid .wp-block-group__inner-container .wp-block-cover {
+      margin-block:.1rem !important;
+   }
+   .wp-block-group.evolutiondesuka-cover-grid .wp-block-group__inner-container .wp-block-cover.has-background-dim  {
+      width:100%;
+   }
+}
+/*
+ * evolutiondesuka-media-text-grid
+ * behaviour which interferes with editing is defined in block-pattern-mods-fe.css
+ */
+.evolutiondesuka-media-text-grid {
+   width:100%;
+   visibility: visible;
+   margin:auto;
+   align-self:center;
+}
+.evolutiondesuka-media-text-grid .wp-block-group__inner-container {
+   padding:0;
+   display:flex;
+   flex-direction: row;
+   flex-wrap: wrap;
+}
+.evolutiondesuka-media-text-grid .wp-block-media-text {
+   width:100%;
+}
+.evolutiondesuka-media-text-grid  .wp-block-media-text p {
+   text-align:center;
+}
+@media screen and (min-width: 786px) {
+   .evolutiondesuka-media-text-grid  .wp-block-media-text {
+      width:50%;
+   }
+}
+.wp-block-group.evolutiondesuka-media-text-grid img {
+   object-fit:contain;
+}
+
+.wp-block-post-template,
+.wp-block-post-excerpt,
+p.wp-block-post-excerpt__excerpt,
+li > .wp-block-group {
+   width:100%;
+}
+
+/*
+ * evolutiondesuka-title-lead
+ */
+.wp-block-group.evolutiondesuka-title-lead {
+   width:100%;
+   margin:auto;
+   padding:0;
+}
+.evolutiondesuka-title-lead .wp-block-group__inner-container {
+   width:100%;
+   margin:0;
+   padding:1rem 0;
+}
+.evolutiondesuka-title-lead {
+   padding:0;
+}
+
+.evolutiondesuka-title-lead p {
+   width:100%;
+   margin:auto;
+}
+.evolutiondesuka-title-lead .evolutiondesuka-title-lead__title {
+   margin:0;
+}
+.evolutiondesuka-title-lead p  {
+   margin:0;
+}
+
+.evolutiondesuka-simple-text p {
+   width:100%;
+   margin:auto;
+
+}
+/*
+ * evolutiondesuka-simple-text
+ */
+.evolutiondesuka-simple-text,
+.evolutiondesuka-simple-text.has-background   {
+   width:100%;
+   margin:auto;
+   padding-inline:2rem;
+}
+.evolutiondesuka-simple-text .wp-block-group__inner-container h1,
+.evolutiondesuka-simple-text .wp-block-group__inner-container h2, 
+.evolutiondesuka-simple-text .wp-block-group__inner-container h3, 
+.evolutiondesuka-simple-text .wp-block-group__inner-container h4, 
+.evolutiondesuka-simple-text .wp-block-group__inner-container h5, 
+.evolutiondesuka-simple-text .wp-block-group__inner-container h6 {
+   width:var(--paragraph-width);
+   margin:auto;margin-bottom:1rem;
+}
+.evolutiondesuka-simple-text .wp-block-group__inner-container p {
+   padding:0 1.6rem;
+}
+
+
+@media screen and (max-width: 768px) {
+
+   .wp-block-group.evolutiondesuka-text {
+      width:100vw;
+   }
+   .wp-block-group.evolutiondesuka-text  .wp-block-group__inner-container {
+      width:90vw;
+      position:relative;
+      left:0
+      ;margin:0;
+   }
+   .wp-block-group.evolutiondesuka-text  .wp-block-group__inner-container p {
+      max-width:90%;
+      position: relative;
+      left:0;
+      padding:0 .5rem;
+      text-align: left;
+   }
+   .wp-block-group.evolutiondesuka-text {padding:0;}
+   .wp-block-group__inner-container {
+      width:100%;margin:0;
+   }
+   .evolutiondesuka-simple-text .wp-block-group__inner-container h1,
+   .evolutiondesuka-simple-text .wp-block-group__inner-container h2, 
+   .evolutiondesuka-simple-text .wp-block-group__inner-container h3, 
+   .evolutiondesuka-simple-text .wp-block-group__inner-container h4, 
+   .evolutiondesuka-simple-text .wp-block-group__inner-container h5, 
+   .evolutiondesuka-simple-text .wp-block-group__inner-container h6 {
+      width:90%;
+   }
+}
+
+/*
+ * evolutiondesuka-columns-text  : future release
+ 
+.evolutiondesuka-columns-text .wp-block-group__inner-container {
+   columns:2 auto;
+   column-width:20em;
+   width:100vw;
+   position:relative;
+   left:50%;
+   margin-left:-50vw;
+}   
+.evolutiondesuka-columns-text .wp-block-group__inner-container p {
+   width:auto;
+   padding:0 1.6rem;
+   margin:0;
+   break-inside:avoid;
+}
+.evolutiondesuka-text-container .wp-block-group__inner-container {
+   padding:0;
+}
+@media screen and (max-width: 768px) {
+   .evolutiondesuka-columns-text {
+      width:100vw;
+   }
+   .evolutiondesuka-columns-text .wp-block-group__inner-container {
+     
+      width:100vw;
+      columns:unset;
+      width:100%;
+      padding:2rem;
+      margin:auto;
+   }   
+   .evolutiondesuka-simple-text .wp-block-group__inner-container p{
+      width:100%;
+      background:silver;
+     
+   }
+}
+*/
+
+
+/*
+ * evolutiondesuka-buttons
+ * behaviour which interferes with editing is defined in block-pattern-mods-fe.css
+ */
+.wp-block-buttons.evolutiondesuka-buttons {
+   width:100%;
+   padding-top:8px;
+   margin:.5rem 1rem;
+}
+.wp-block-buttons.evolutiondesuka-buttons .wp-block-button a.wp-block-button__link {
+   border-radius:0;
+   border:solid 1px transparent;
+   margin-inline:0 2rem;
+}
+@media screen and (max-width: 768px) {
+   .wp-block-buttons.evolutiondesuka-buttons {
+      margin:0;
+      margin-inline:.5rem;
+   }
+}
+
+/*
+ * evolutiondesuka-image#
+ */
+.evolutiondesuka-image {
+   margin:auto;
+}
+.evolutiondesuka-image .blocks-gallery-grid {
+   justify-content:center;
+}
+.evolutiondesuka-gallery {
+   margin:auto;
+}
+.evolutiondesuka-gallery .blocks-gallery-grid {
+   justify-content:center;
+   align-items: center;
+}    
+
+/*
+ * wp-block-gallery : [display:flex]
+ */
+.evolutiondesuka-gallery  {
+   justify-content:center;
+}
+
+
