@@ -1,11 +1,4 @@
-EvolutionDesuKa WordPress Theme
-Contributors: EvolutionDesuKa  
-Requires at least: 5.0
-Tested up to: 5.8
-Stable tag: 1.0
-License: GPLv3 or later
-License URI: https://www.gnu.org/licenses/gpl-3.0.html 
-Tags: one-column, two-columns, left-sidebar, custom-header, custom-logo, custom-menu, featured-images, footer-widgets, theme-options, portfolio, blog, photography
+WordPress Theme
 
 This was a first/early pass at learning WordPress theme development - there are plenty of mistakes and wrong paths
 trodden herein. It did pass the wordpress.org automated tests for theme submission on that site, but had couple of 
@@ -15,7 +8,7 @@ my past learning efforts.
 EvolutionDesuKa provides a block-based flexible and consistent layout framework for your website. It uses customizable block patterns to promote consistency across your website - allowing you to easily set site-wide styling across common components. Ideal for smaller businesses or personal website owners looking to create a professional frontend for their work. Open and publish via the Customizer to access example Starter Content. 
 
 
-## Description
+##  Description
 
 EvolutionDesuKa provides a block-based flexible and consistent layout framework for your website. It uses customizable block patterns to promote consistency across your website - allowing you to easily set site-wide styling across common components. Ideal for smaller businesses or personal website owners looking to create a professional frontend for their work. Open and publish via the Customizer to access example Starter Content. 
 
